@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="col-sm-3 col-md-9">
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Home</a></li>
+  <li class=""><a href="#search" data-toggle="tab" aria-expanded="false">Search</a></li>
+  <li class=""><a href="#playlist" data-toggle="tab" aria-expanded="false">My Playlists</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="home">   
+  <h2> Trending Now</h2>
+    <div class="row">
+{% for artist in object_list %}
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="{{artist.artist_pic.url}}" class="img-thumbnail" alt="{{artist.name}}">
+      <div class="caption">
+        <h3 class="text-success">{{artist.name}}</h3>
+        <p>{{artist.bio|truncatewords:20}}</p>
+       </div>
+    </div>
+  </div>
+{% endfor %}
+</div>  
+  </div>
+
+
+  <div class="tab-pane fade" id="search">
+   <div class="form-group">
+  <div class="input-group">
+    <span class="input-group-addon">Search</span>
+    <input type="text" class="form-control" placeholder="Love Story,Taylor Swift" ng-model="search">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button" autofocus><i>go!</i></button>
+    </span>
+    
+  </div>
+  </div>
+</div>
+  <div class="tab-pane fade" id="playlist">
+   <div class="form-group">
+          
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Create Playlist</button>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      	<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h5 class="modal-title">Create Playlist</h5>
+      </div>
+      <div class="modal-body">
+         <div class="form-group">
+          <input type="text" class="form-control" placeholder="Playlist Name">
+   		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+   </div>
+  </div>
+
+</div>
+</div>
+{% endblock %}
