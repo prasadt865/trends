@@ -26,8 +26,8 @@ class Song(models.Model):
 	file= models.FileField(upload_to="songs/")
 
 class UserLog(models.Model):
-	song= models.ManyToManyField(Song)
-	user= models.ManyToManyField(User)
+	song= models.ForeignKey(Song)
+	user= models.ForeignKey(User)
 	time= models.DateTimeField(auto_now_add=True)
 
 
