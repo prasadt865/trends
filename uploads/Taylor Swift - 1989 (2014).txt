@@ -1,0 +1,29 @@
+﻿Artist       : Taylor Swift
+Album        : 1989
+Genre        : Pop
+Year         : 2014
+Tracks       : 19
+Playtime     : 01:08:47
+Size         : 158.37 MB
+Codec        : MPEG 1 Layer III / Lame 3.82 / 320 kbps
+
+01. Welcome to New York (03:32)
+02. Blank Space (03:51)
+03. Style (03:51)
+04. Style (03:55)
+05. All You Had to Do Was Stay (03:13)
+06. Shake It Off (03:39)
+07. I Wish You Would (03:27)
+08. Wildest Dreams (03:32)
+09. Bad Blood (03:40)
+10. How You Get the Girl (04:07)
+11. This Love (04:10)
+12. I Know Places (03:15)
+13. Clean (04:31)
+14. Wonderland (04:05)
+15. You R In Love (04:27)
+16. New Romance (03:50)
+17. Out of the Woods (Voice Memo) (03:36)
+18. Shake It Off (Voice Memo) (01:47)
+19. I Know Places (Voice Memo) (02:11)
+

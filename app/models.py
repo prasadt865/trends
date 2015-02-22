@@ -2,11 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 from djangotoolbox.fields import ListField,EmbeddedModelField
 # Create your models here.
-
+'''
 class Artist(models.Model):
 	name= models.CharField(max_length=20)
 	bio= models.TextField()
-	artist_pic= models.FileField(upload_to="artist/")
+	artist_pic= models.FileField(upload_to="artist/",blank=True)
 
 	def __unicode__(self):
 		return self.name
@@ -16,14 +16,26 @@ class Artist(models.Model):
 
 class Album(models.Model):
 	name= models.CharField(max_length=20)
-	year= models.DateTimeField()
-	album_art= models.FileField(upload_to="album/")
+	year= models.PositiveSmallIntegerField(blank=True, null=True)
+	album_art= models.FileField(upload_to="album/",blank=True)
+
+	def __unicode__(self):
+		return "%s %s" %(self.name,self.year)
+'''
 
 class Song(models.Model):
 	title= models.CharField(max_length=20)
-	artist=ListField(EmbeddedModelField(Artist))
-	genre= ListField()
+	artist=models.CharField(max_length=20)
+	album= models.CharField(max_length=20)
+	year=models.PositiveSmallIntegerField(blank=True, null=True)
+	genre= models.CharField(max_length=20)
 	file= models.FileField(upload_to="songs/")
+
+	def __unicode__(self):
+		return "%s" % (self.title)
+
+	class Meta:
+		ordering = ["title"]
 
 class UserLog(models.Model):
 	song= models.ForeignKey(Song)

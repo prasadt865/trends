@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'djangotoolbox',
     'django_mongodb_engine',
+    'haystack',
     'app',
 
 )

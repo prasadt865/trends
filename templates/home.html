@@ -12,16 +12,8 @@
   <div class="tab-pane fade active in" id="home">   
   <h2> Trending Now</h2>
     <div class="row">
-{% for artist in object_list %}
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="{{artist.artist_pic.url}}" class="img-thumbnail" alt="{{artist.name}}">
-      <div class="caption">
-        <h3 class="text-success">{{artist.name}}</h3>
-        <p>{{artist.bio|truncatewords:20}}</p>
-       </div>
-    </div>
-  </div>
+{% for Song in object_list %}
+  
 {% endfor %}
 </div>  
   </div>
@@ -40,7 +32,7 @@
   </div>
 </div>
   <div class="tab-pane fade" id="playlist">
-   <div class="form-group">
+   {# <div class="form-group"> #}
           
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Create Playlist</button>

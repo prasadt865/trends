@@ -6,7 +6,7 @@ from django.contrib import admin
 admin.autodiscover()
 from django.conf import settings
 from django.conf.urls.static import static
-from app.models import Album,Artist
+from app.models import Song
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'music.views.home', name='home'),
@@ -21,7 +21,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/', "django.contrib.auth.views.login", {"template_name": "login.html"}, name="login"),
     url(r"^logout/$", "django.contrib.auth.views.logout_then_login",name="logout"),
-    url(r'^', login_required(ListView.as_view(template_name="home.html", model=Artist)), name="home")
+    url(r'^', login_required(ListView.as_view(template_name="home.html", model=Song)), name="home")
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
