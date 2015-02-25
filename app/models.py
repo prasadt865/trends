@@ -24,15 +24,15 @@ class Album(models.Model):
 '''
 
 class Song(models.Model):
-	title= models.CharField(max_length=20)
-	artist=models.CharField(max_length=20)
-	album= models.CharField(max_length=20)
+	title= models.CharField(max_length=50)
+	artist=models.CharField(max_length=50)
+	album= models.CharField(max_length=50)
 	year=models.PositiveSmallIntegerField(blank=True, null=True)
-	genre= models.CharField(max_length=20)
+	genre= models.CharField(max_length=50)
 	file= models.FileField(upload_to="songs/")
 
 	def __unicode__(self):
-		return "%s" % (self.title)
+		return "%s-%s-%s" % (self.title,self.album,self.artist)
 
 	class Meta:
 		ordering = ["title"]

@@ -98,7 +98,6 @@ TEMPLATE_DIRS = (
 
 
 
-
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -135,9 +134,25 @@ INSTALLED_APPS = (
     'djangotoolbox',
     'django_mongodb_engine',
     'haystack',
+    'whoosh',
     'app',
 
 )
+
+import os
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}
+
+
+
+#WHOOSH_INDEX = os.path.join()
+
+
+
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 

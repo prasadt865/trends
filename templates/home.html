@@ -10,27 +10,62 @@
 </ul>
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane fade active in" id="home">   
-  <h2> Trending Now</h2>
+  <h2>Total {{object_list.count}} songs</h2>
     <div class="row">
-{% for Song in object_list %}
-  
-{% endfor %}
+    
+  <table class="table  table-hover ">
+  <thead>
+    <tr class="success">
+      
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Album</th>
+      <th>Genre</th>
+      <th>Year</th>
+      
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for song in object_list %}
+    <tr>
+      <td>{{song.title}}</td>
+      <td>{{song.artist}}</td>
+      <td>{{song.album}}</td>
+      <td>{{song.genre}}</td>
+      <td>{{song.year}}</td>
+    </tr> 
+   {% endfor %}
+  </tbody>
+</table> 
+
+
+
+
 </div>  
   </div>
 
 
   <div class="tab-pane fade" id="search">
+   <form form type="get" action="/search/">
    <div class="form-group">
   <div class="input-group">
-    <span class="input-group-addon">Search</span>
-    <input type="text" class="form-control" placeholder="Love Story,Taylor Swift" ng-model="search">
+    <!--span class="input-group-addon">Search</span-->
+    <input type="text" class="form-control" placeholder="Love Story,Taylor Swift" name='q'>
     <span class="input-group-btn">
-      <button class="btn btn-default" type="button" autofocus><i>go!</i></button>
+      <button class="btn btn-default" type="submit" autofocus><i>Search!</i></button>
     </span>
     
   </div>
   </div>
-</div>
+  </form>
+<!--form type="get" action="/search/">
+         <input type="text" name="q">
+         <button type="submit">Search</button>
+     </form-->
+  
+
+  </div>
   <div class="tab-pane fade" id="playlist">
    {# <div class="form-group"> #}
           
