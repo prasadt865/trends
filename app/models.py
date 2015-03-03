@@ -37,6 +37,18 @@ class Song(models.Model):
 	class Meta:
 		ordering = ["title"]
 
+class Playlist(models.Model):
+	user= models.ForeignKey(User)
+	name= models.CharField(max_length=50)
+	songs= ListField(EmbeddedModelField('Song'))
+	date= models.DateTimeField(auto_now_add=True)
+
+	def __unicode__(self):
+		return "%s %s %s" % (self.name,self.user,self.date)
+
+	class Meta:
+		ordering = ["name"]
+
 class UserLog(models.Model):
 	song= models.ForeignKey(Song)
 	user= models.ForeignKey(User)

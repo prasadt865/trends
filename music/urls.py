@@ -7,6 +7,7 @@ admin.autodiscover()
 from django.conf import settings
 from django.conf.urls.static import static
 from app.models import Song
+from app.views import root,playlist
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'music.views.home', name='home'),
@@ -21,8 +22,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/', "django.contrib.auth.views.login", {"template_name": "login.html"}, name="login"),
     url(r"^logout/$", "django.contrib.auth.views.logout_then_login",name="logout"),
-    
-    url(r'search/', 'app.views.root',name="search" ),	
+    url(r'^playlist/', playlist.as_view(),name="playlist"),
+    url(r'search/', root.as_view()	,name="search" ),	
     url(r'^', login_required(ListView.as_view(template_name="home.html", model=Song)), name="home")
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

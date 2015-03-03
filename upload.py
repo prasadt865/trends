@@ -24,7 +24,4 @@ def uploadNow():
 
 			print "%s uploaded" % (title)
 
-
-
-
-
+#"color_scheme": "Packages/User/SublimeLinter/Monokai Bright (SL).tmTheme",

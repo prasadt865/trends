@@ -30,7 +30,8 @@
 	    <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
     
             {% else %}
-          <li><a href="{% url 'login' %}">Login</a></li>     
+          <li><!--a href="{% url 'login' %}">Login</a-->
+              <a href="#"><i class="fa fa-google-plus fa-2x"> Sign up</i></a></li>     
            {% endif %}
                  
           </ul> </div>
